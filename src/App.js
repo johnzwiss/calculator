@@ -2,6 +2,7 @@ import Wrapper from "./components/Wrapper";
 import Display from "./components/Display";
 import Button from "./components/Button";
 import Keyboard from "./components/Keyboard";
+import CalcProvider from "./context/CalcContext";
 
 const btnValues =[
   ["C","(", ")","/"],
@@ -14,18 +15,22 @@ const btnValues =[
 
 function App() {
   return (
-    <div>
-      <Wrapper>
-        <Display/>
-        <Keyboard>
-          {btnValues.flat().map((btn, i) => (
-            <Button value = {btn}
-                    key = {i}
-                    />
-          ))}
-        </Keyboard>
-      </Wrapper>
-    </div>
+    
+      
+  <CalcProvider>
+    <Wrapper>
+      <Display />
+      <Keyboard>
+        {btnValues.flat().map((btn, i) => (
+          <Button
+            value={btn}
+            key={i}
+          />
+        ))}
+      </Keyboard>
+    </Wrapper>
+  </CalcProvider>
+      
   );
 }
 

@@ -1,6 +1,12 @@
+import { useContext } from "react"
+import { CalcContext } from "../context/CalcContext"
+
+
 const Display = () => {
+    const {calc} = useContext(CalcContext);
+
     return (
-        <div className="display">123213123</div>
+        <div className="display">{calc.num ? calc.num : calc.res} </div>
     )
 }
 
